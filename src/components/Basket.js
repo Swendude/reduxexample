@@ -1,6 +1,3 @@
-import { useDispatch } from "react-redux";
-import { addItem } from "../_store/actions";
-
 function Basket (props) {
     return (
         

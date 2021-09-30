@@ -1,5 +1,5 @@
-import Basket from "./_components/Basket";
-import Checkout from "./_components/Checkout";
+import Basket from "./components/Basket";
+import Checkout from "./components/Checkout";
 import { useState } from "react";
 
 function App() {
