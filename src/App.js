@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Basket from "./_components/Basket";
+import Checkout from "./_components/Checkout";
+import { useState } from "react";
 
 function App() {
+  const [basket, setBasket] = useState([{ name: "wine", price: 5 }]);
+
+  const add = (_name, amount) =>
+    setBasket([...basket, { name: _name, price: amount }]);
+  
+  const totalAmount = (list) => {
+    var total = 0;
+    for (let i = 0; i < list.length; i++) {
+      total += list[i].price;
+    }
+    return total;
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Basket items={basket} addItem={add} />
+      <Checkout amount={totalAmount(basket)} />
     </div>
   );
 }
